@@ -85,9 +85,9 @@ nav {
 }
 
 .profile-image {
-    width: 150px;
+    flex: 0 0 150px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 20px;
     overflow: hidden;
     border: 3px solid rgba(255, 255, 255, 0.2);
 }
@@ -98,6 +98,10 @@ nav {
     object-fit: cover;
 }
 
+.profile-info {
+    flex: 1;
+}
+
 .profile-info h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -106,6 +110,13 @@ nav {
 .profile-info .title {
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.2rem;
+}
+
+.profile-info .intro-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 20px 0;
 }
 
 /* About Sections */
@@ -831,4 +842,242 @@ nav {
         align-items: flex-start;
         gap: 15px;
     }
+}
+
+/* Programming Languages Section */
+.language-progression {
+    margin: 60px 0;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: none; /* Initially hidden */
+}
+
+.language-progression h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.arrow-wrapper {
+    position: relative;
+    height: 900px;
+    margin: 80px auto;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Reset arrow to center */
+.arrow {
+    position: absolute;
+    left: 50%;
+    height: calc(100% - 140px);
+    width: 4px;
+    transform: translateX(-50%);
+    top: 70px;
+}
+
+.arrow-shaft {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #999;
+}
+
+.arrow-point {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid #999;
+}
+
+/* Language Row Styles */
+.language-row {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    bottom: calc((100% - 300px) * (var(--order) - 1) / 8 + 120px);
+}
+
+.language-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    width: 180px;
+    justify-content: flex-start;
+}
+
+.language-info img {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.language-name {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Proficiency Bar Styles */
+.proficiency {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.circular-progress {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #999 calc(var(--progress) * 1%),
+        rgba(255, 255, 255, 0.1) calc(var(--progress) * 1%)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular-progress .inner {
+    width: 32px;
+    height: 32px;
+    background: #0f0f0f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular-progress span {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.proficiency > span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+}
+
+.level-indicator {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.level-indicator.top {
+    top: -20px;
+}
+
+.level-indicator.bottom {
+    bottom: -20px;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(var(--slide-from));
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Restore left/right positioning */
+.language-info.left {
+    margin-right: auto;
+    margin-left: 40px;
+}
+
+.language-info.right {
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .arrow-wrapper {
+        height: 500px;
+    }
+    
+    .language-info {
+        padding: 8px 15px;
+    }
+    
+    .level-indicator {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    .level-indicator.top {
+        top: -35px;
+    }
+    
+    .level-indicator.bottom {
+        bottom: -35px;
+    }
+}
+
+.language-info {
+    transition: all 0.3s ease;
+}
+
+.language-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.language-info:hover img {
+    transform: rotate(360deg);
+    transition: transform 0.5s ease;
+}
+
+/* Expand Button */
+.expand-button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.expand-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }

@@ -19,33 +19,26 @@
     </nav>
 
     <div class="container">
-        <!-- Introduction Section -->
-        <section class="intro-section">
-            <div class="intro-content">
-                <h1>About Me</h1>
-                <p class="intro-text">
-                    I'm an Integrated Engineering student at the University of British Columbia, specializing in 
-                    Electrical and Computer Engineering. With experience ranging from embedded systems to PCB design, 
-                    I bridge the gap between hardware and software development.
-                </p>
-            </div>
-            <div class="tech-stats">
-                <div class="stat">
-                    <span class="number">3+</span>
-                    <span class="label">Years Experience</span>
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="../images/smiling_headshot.jpg" alt="Profile Picture">
                 </div>
-                <div class="stat">
-                    <span class="number">15+</span>
-                    <span class="label">Technologies</span>
-                </div>
-                <div class="stat">
-                    <span class="number">10+</span>
-                    <span class="label">Projects</span>
+                <div class="profile-info">
+                    <h1>Felipe Nunes</h1>
+                    <p class="title">Integrated Engineering Student</p>
+                    <p class="intro-text">
+                        I'm an Integrated Engineering student at the University of British Columbia, specializing in Electrical and Computer Engineering. With experience ranging from embedded systems to PCB design, I bridge the gap between hardware and software development.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Programming Languages Section (existing) -->
+        <!-- Expand Button -->
+        <button class="expand-button">Show Programming Languages</button>
+
+        <!-- Programming Languages Section -->
         <section class="language-progression">
             <h2>Programming Languages</h2>
             <div class="arrow-wrapper">
@@ -61,7 +54,7 @@
                 <!-- Low Level (Bottom Left) -->
                 <div class="language-row" style="--order: 1">
                     <div class="language-info left">
-                        <img src="icons/assembly.png" alt="Assembly x86">
+                        <img src="../icons/assembly.png" alt="Assembly x86">
                         <span class="language-name">Assembly x86</span>
                     </div>
                 </div>
@@ -185,5 +178,7 @@
             </div>
         </section>
     </div>
+
+    <script src="../js/about.js"></script>
 </body>
-</html> 
+</html>
