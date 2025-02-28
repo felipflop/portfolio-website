@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #0f0f0f;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/experience.css">
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Title Section -->
+        <section class="title-section">
+            <h1>Experience</h1>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="experience-section">
+            <h2>Work Experience</h2>
+            
+            <!-- UBC Card First -->
+            <div class="experience-card" onclick="showModal(this)">
+                <div class="card-background">
+                    <div class="company-logo">
+                        <img src="icons/3ba-logo.png" alt="UBC Logo">
+                    </div>
+                </div>
+                <div class="exp-header">
+                    <div class="company-info">
+                        <h3>3BA Printing</h3>
+                        <span class="role">CAD Designer</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="location">Vancouver, B.C.</span>
+                        <span class="duration">Sep 2024 – Present</span>
+                    </div>
+                </div>
+                <div class="exp-content">
+                    <div class="exp-description">
+                        <p>Worked on developing robotic systems for human-robot interaction research.</p>
+                    </div>
+                    <div class="related-links">
+                        <h4>Related Links</h4>
+                        <div class="link-buttons">
+                            <a href="https://3baprinting.com/" target="_blank" class="link-btn website">
+                                <span>Website</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="key-technologies">
+                        <h4>Key Technologies:</h4>
+                        <ul class="tech-list">
+                            <li>ROS2</li>
+                            <li>Python</li>
+                            <li>Linux</li>
+                            <li>Git</li>
+                        </ul>
+                    </div>
+                    <ul class="achievements">
+                        <li>Developed ROS2 nodes for robot control and sensor integration</li>
+                        <li>Implemented computer vision algorithms for object detection</li>
+                        <li>Created Python scripts for data collection and analysis</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-card" onclick="showModal(this)">
+                <div class="card-background">
+                    <div class="company-logo">
+                        <img src="icons/miru-logo.png" alt="Miru Logo">
+                    </div>
+                </div>
+                <div class="exp-header">
+                    <div class="company-info">
+                        <h3>Miru</h3>
+                        <span class="role">Systems Integration Intern</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="location">Vancouver, B.C.</span>
+                        <span class="duration">May 2024 – Aug 2024</span>
+                    </div>
+                </div>
+                <div class="exp-content">
+                    <div class="exp-description">
+                        <p>Working on systems integration and automation.</p>
+                    </div>
+                    <div class="related-links">
+                        <h4>Related Links</h4>
+                        <div class="link-buttons">
+                            <a href="https://miru.so" target="_blank" class="link-btn website">
+                                <span>Website</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="key-technologies">
+                        <h4>Key Technologies:</h4>
+                        <ul class="tech-list">
+                            <li>PCB Design</li>
+                            <li>Zephyr RTOS</li>
+                            <li>C/MicroPython</li>
+                            <li>CMake</li>
+                        </ul>
+                    </div>
+                    <ul class="achievements">
+                        <li>Reduced mixed-signal PCB size by over 200% in a multi-layer design using a BGA System on Module</li>
+                        <li>Wrote C modules in Zephyr to drive electrochromic windows and enhance cycling abilities</li>
+                        <li>Compiled a custom Firmware Over the Air module into MicroPython with CMake and linker scripts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-card" onclick="showModal(this)">
+                <div class="card-background">
+                    <div class="company-logo">
+                        <img src="icons/sarcomere-dynamics-logo.png" alt="Sarcomere Dynamics Logo">
+                    </div>
+                </div>
+                <div class="exp-header">
+                    <div class="company-info">
+                        <h3>Sarcomere Dynamics</h3>
+                        <span class="role">Electrical and Firmware Engineering Intern</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="location">Vancouver, B.C.</span>
+                        <span class="duration">May 2023 – April 2024</span>
+                    </div>
+                </div>
+                <div class="exp-content">
+                    <div class="exp-description">
+                        <p>Working on electric vehicle systems.</p>
+                    </div>
+                    <div class="related-links">
+                        <h4>Related Links</h4>
+                        <div class="link-buttons">
+                            <a href="https://sarcomeredynamics.com/home" target="_blank" class="link-btn website">
+                                <span>Website</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="key-technologies">
+                        <h4>Key Technologies:</h4>
+                        <ul class="tech-list">
+                            <li>Embedded C</li>
+                            <li>Object-Oriented Programming</li>
+                            <li>Reflow Soldering</li>
+                            <li>Hardware Debugging</li>
+                        </ul>
+                    </div>
+                    <ul class="achievements">
+                        <li>Aided in the creation of embedded C code to control custom actuators for a cutting-edge robotic hand</li>
+                        <li>Modified three distinct PCBs, focusing on USB-C circuitry, UART/I2C/SPI protocols and power design</li>
+                        <li>Programmed multiple C++ classes through Object-Oriented Programming techniques</li>
+                        <li>Enhanced a custom Python API with innovative features, facilitating operation of the hand through Wi-Fi</li>
+                        <li>Honed skills in reflow soldering and hardware debugging</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engineering Teams -->
+        <section class="teams-section">
+            <h2>Engineering Design Teams</h2>
+            
+            <div class="experience-card" onclick="showModal(this)">
+                <div class="card-background">
+                    <div class="company-logo">
+                        <img src="icons/open-robotics-logo.png" alt="Open Robotics Logo">
+                    </div>
+                </div>
+                <div class="exp-header">
+                    <div class="company-info">
+                        <h3>Open Robotics</h3>
+                        <span class="role">Grippers Team Lead</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="location">University of British Columbia</span>
+                        <span class="duration">Sep 2024 – Present</span>
+                    </div>
+                </div>
+                <div class="exp-content">
+                    <div class="exp-description">
+                        <p>Working on autonomous robotics systems.</p>
+                    </div>
+                    <div class="related-links">
+                        <h4>Related Links</h4>
+                        <div class="link-buttons">
+                            <a href="https://openrobotics.ca/" target="_blank" class="link-btn website">
+                                <span>Website</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="key-technologies">
+                        <h4>Key Technologies:</h4>
+                        <ul class="tech-list">
+                            <li>Robotics</li>
+                            <li>Parallel Grippers</li>
+                            <li>RoboCup@Home</li>
+                        </ul>
+                    </div>
+                    <ul class="achievements">
+                        <li>Spearheaded development of a parallel gripper for the RoboCup@Home competition</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-card" onclick="showModal(this)">
+                <div class="card-background">
+                    <div class="company-logo">
+                        <img src="icons/supermileage-logo.png" alt="Supermileage Logo">
+                    </div>
+                </div>
+                <div class="exp-header">
+                    <div class="company-info">
+                        <h3>Supermileage</h3>
+                        <span class="role">Electrical Team Member</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="location">University of British Columbia</span>
+                        <span class="duration">Sep 2022 – Aug 2023</span>
+                    </div>
+                </div>
+                <div class="exp-content">
+                    <div class="exp-description">
+                        <p>Working on electric vehicle systems.</p>
+                    </div>
+                    <div class="related-links">
+                        <h4>Related Links</h4>
+                        <div class="link-buttons">
+                            <a href="https://www.supermileage.ca" target="_blank" class="link-btn website">
+                                <span>Website</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="key-technologies">
+                        <h4>Key Technologies:</h4>
+                        <ul class="tech-list">
+                            <li>PCB Design</li>
+                            <li>Safety Features</li>
+                            <li>Fault Detection</li>
+                        </ul>
+                    </div>
+                    <ul class="achievements">
+                        <li>Redesigned, ordered, and soldered a safety PCB to detect system faults</li>
+                        <li>Curated code to properly identify sources of faults</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-button" onclick="closeModal()">×</button>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="js/experience.js"></script>
+</body>
+</html> 

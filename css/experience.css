@@ -1,0 +1,740 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0f0f0f;
+    color: white;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 25px 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 40px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 50px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Title section */
+.title-section {
+    margin-bottom: 20px;
+}
+
+.title-section h1 {
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Experience sections */
+.experience-section,
+.teams-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Card styles */
+.experience-card {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    height: 110px;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 15px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-background {
+    position: relative;
+    width: 100%;
+    max-height: 100%;
+    height: 110px;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.02);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.company-logo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 120px;
+}
+
+.company-logo img {
+    width: 70%;
+    height: 70%;
+    max-height: 84px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(180%);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.company-logo::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,0.1) 0%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* Content layout */
+.exp-header {
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.company-info {
+    margin-bottom: 5px;
+}
+
+.company-info h3 {
+    font-size: 1.2rem;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.role {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.exp-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.location,
+.duration {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Clean card hover effects with just gradient */
+.experience-card {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    height: 110px;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 15px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient border effect */
+.experience-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid transparent;
+    background: linear-gradient(45deg, 
+        rgba(255,255,255,0.1), 
+        rgba(255,255,255,0.2), 
+        rgba(255,255,255,0.1)
+    );
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Simple hover states */
+.experience-card:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 2;
+}
+
+.experience-card:hover::before {
+    opacity: 1;
+}
+
+.experience-card:hover .company-logo img {
+    filter: grayscale(0%) brightness(200%);
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+/* Stagger animation for cards */
+.experience-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.experience-card:nth-child(1) { animation-delay: 0.1s; }
+.experience-card:nth-child(2) { animation-delay: 0.2s; }
+.experience-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal adjustments */
+.modal-content {
+    background: #1a1a1a;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+    overflow-y: auto;
+}
+
+.modal-body .company-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.modal-body .company-logo img {
+    filter: none;
+}
+
+/* Card Header */
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    position: relative;
+    padding-right: 30px;
+}
+
+.company-info h3 {
+    font-size: 1.2rem;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.role {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    display: block;
+}
+
+.exp-meta {
+    text-align: right;
+}
+
+.location,
+.duration {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Achievements List */
+.achievements {
+    list-style: none;
+}
+
+.achievements li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.achievements li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: #999;
+}
+
+/* Animation for cards */
+.experience-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add animation delay for each card */
+.experience-card:nth-child(1) { animation-delay: 0.1s; }
+.experience-card:nth-child(2) { animation-delay: 0.2s; }
+.experience-card:nth-child(3) { animation-delay: 0.3s; }
+.experience-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: calc(100vh - 60px);
+    }
+
+    .experience-section,
+    .teams-section {
+        flex: none;
+        height: 50%;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .exp-meta {
+        text-align: left;
+    }
+
+    .experience-card {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .company-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .role {
+        font-size: 1rem;
+    }
+}
+
+/* Add these styles for expandable cards */
+.exp-header {
+    position: relative;
+    padding-right: 30px;
+}
+
+.expand-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #999;
+    transition: transform 0.3s ease;
+}
+
+.experience-card.expanded .expand-icon {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.exp-content {
+    display: none;
+}
+
+.exp-description {
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.key-technologies {
+    margin-bottom: 20px;
+}
+
+.key-technologies h4 {
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.tech-list li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Add modal styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #fff;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Remove all scroll-related styles */
+.experience-section,
+.teams-section,
+.container {
+    overflow: visible;
+}
+
+.intro-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+}
+
+/* Add subtle animation */
+@keyframes float {
+    0% {
+        transform: translateX(10px) rotate(-5deg);
+    }
+    50% {
+        transform: translateX(5px) rotate(-2deg);
+    }
+    100% {
+        transform: translateX(10px) rotate(-5deg);
+    }
+}
+
+.company-logo img {
+    animation: none;
+}
+
+.experience-card:hover .company-logo img {
+    filter: grayscale(0%) brightness(200%);
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+/* Text hover effect */
+.experience-card:hover .exp-header {
+    transform: translateX(10px);
+}
+
+/* Enhanced logo hover effect */
+.experience-card:hover .company-logo img {
+    filter: grayscale(0%) brightness(200%);
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+/* Add subtle glow behind logo on hover */
+.experience-card:hover .card-background {
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.02) 50%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+}
+
+/* Blog-style content layout */
+.modal-body {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.modal-body .exp-header {
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+.modal-body .company-info h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.modal-body .role {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.modal-body .exp-meta {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.exp-description {
+    margin: 30px 0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.key-technologies {
+    margin: 30px 0;
+}
+
+.key-technologies h4 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.tech-list li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.achievements {
+    margin: 30px 0;
+    padding-left: 20px;
+}
+
+.achievements li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Scrollbar styling */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* New link styles */
+.related-links {
+    margin: 30px 0;
+}
+
+.related-links h4 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.link-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.link-btn {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.link-btn svg {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.link-btn span {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.link-btn:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.link-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, 
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.link-btn:hover::after {
+    opacity: 1;
+}
+
+.link-btn:hover svg {
+    transform: scale(1.1);
+}
+
+/* Specific button styles */
+.link-btn.website {
+    background: rgba(66, 153, 225, 0.1);
+}
+
+.link-btn.github {
+    background: rgba(45, 45, 45, 0.8);
+}
+
+.link-btn.website:hover {
+    background: rgba(66, 153, 225, 0.2);
+}
+
+.link-btn.github:hover {
+    background: rgba(45, 45, 45, 1);
+}

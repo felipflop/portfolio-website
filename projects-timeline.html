@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Timeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="projects-timeline.css">
+    <style>
+        /* New Creative Image Container */
+        .project-image-container {
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid rgba(255, 255, 255, 0.2);
+            transition: border-color 0.3s ease;
+            margin-bottom: 15px;
+            max-width: 400px; /* Constrains the container to a max width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-image-container img {
+            width: 100%;
+            height: auto; /* Maintains aspect ratio */
+            max-height: 250px; /* Optional: if you want to constrain the height as well */
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-image-container:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="date">2025</div>
+            <div class="content">
+                <div class="project-image-container">
+                    <img src="images/checkmate.png" alt="Latest Project">
+                </div>
+                <div class="project-info">
+                    <h3>check-M.A.T.E</h3>
+                    <p>A mechanically articulated tabletop experience</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="date">2024</div>
+            <div class="content">
+                <div class="project-image-container">
+                    <img src="images/headshot.jpg" alt="Latest Project">
+                </div>
+                <div class="project-info">
+                    <h3>Latest Project</h3>
+                    <p>Your most recent project and its impact.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="date">2023</div>
+            <div class="content">
+                <div class="project-image-container">
+                    <img src="images/headshot.jpg" alt="2023 Project">
+                </div>
+                <div class="project-info">
+                    <h3>2023 Project</h3>
+                    <p>A significant project from 2023.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="date">2022</div>
+            <div class="content">
+                <div class="project-image-container">
+                    <img src="images/headshot.jpg" alt="2022 Project">
+                </div>
+                <div class="project-info">
+                    <h3>2022 Project</h3>
+                    <p>A key project from 2022.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="date">2021</div>
+            <div class="content">
+                <div class="project-image-container">
+                    <img src="images/headshot.jpg" alt="2021 Project">
+                </div>
+                <div class="project-info">
+                    <h3>2021 Project</h3>
+                    <p>An important milestone from 2021.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="date">2020</div>
+            <div class="content">
+                <div class="project-image-container">
+                    <img src="images/headshot.jpg" alt="First Project">
+                </div>
+                <div class="project-info">
+                    <h3>First Project</h3>
+                    <p>Where your journey began.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for expanded blog post -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <!-- The close button and dynamic content will be inserted via JS -->
+        </div>
+    </div>
+
+    <script>
+    // JavaScript to handle modal opening/closing for each timeline item
+    document.addEventListener('DOMContentLoaded', function() {
+        const timelineItems = document.querySelectorAll('.timeline-item .content');
+        const modal = document.getElementById('modal');
+        const modalContent = document.querySelector('.modal-content');
+
+        timelineItems.forEach((item) => {
+            item.addEventListener('click', function() {
+                // Grab title, description, and optionally other info.
+                const title = this.querySelector('.project-info h3').innerText;
+                const description = this.querySelector('.project-info p').innerText;
+                // You can extend this to load more detailed blog content.
+                const expandedContent = `
+                    <span id="close-modal" class="close">&times;</span>
+                    <h2>${title}</h2>
+                    <p>${description}</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec purus vel leo pretium ultrices. Cras non purus vitae felis consequat fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean blandit dolor a metus efficitur bibendum. Sed euismod, augue at hendrerit imperdiet, nisi urna faucibus sapien, non hendrerit mauris ante non ligula.</p>
+                    <p>Praesent vitae orci sit amet ante pharetra pharetra. Duis hendrerit, tortor a posuere viverra, dui erat vulputate nulla, non porta nisl magna a purus. Integer nec urna suscipit, pretium massa nec, varius nisi.</p>
+                `;
+                modalContent.innerHTML = expandedContent;
+                modal.style.display = 'block';
+
+                document.getElementById('close-modal').addEventListener('click', function () {
+                    modal.style.display = 'none';
+                });
+            });
+        });
+
+        // Click outside modal content to close.
+        window.addEventListener('click', function(e) {
+            if(e.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html>

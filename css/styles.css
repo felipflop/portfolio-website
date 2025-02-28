@@ -1,0 +1,6 @@
+/* Add these base styles to your main CSS file */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f0f;
+} 

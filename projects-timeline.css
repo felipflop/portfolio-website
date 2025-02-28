@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0f0f0f;
+    color: white;
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 25px 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 50px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+/* Timeline */
+.timeline {
+    max-width: 1200px;
+    margin: 120px auto 40px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+    margin-bottom: 100px;
+    position: relative;
+    width: 100%;
+}
+
+.timeline-item:nth-child(odd) .content {
+    margin-left: auto;
+    transform: translateX(50px);
+}
+
+.timeline-item:nth-child(even) .content {
+    margin-right: auto;
+    transform: translateX(-50px);
+}
+
+.date {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.content {
+    position: relative; /* Needed for pseudo-element overlay */
+    width: 45%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Pseudo-element overlay for enticing hover effect */
+.content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.content:hover::before {
+    opacity: 1;
+}
+
+/* New Creative Full‑Bleed Image Container */
+.project-image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-1 * ((100vw - 100%)/2));
+    min-height: 250px;
+    border-bottom: 4px solid rgba(255, 255, 255, 0.2);
+    transition: border-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.project-image-container img {
+    width: 100%;
+    height: 250px; /* Adjust as needed */
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-image-container:hover img {
+    transform: scale(1.1);
+}
+
+.project-image-container:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.content img {
+    /* (this rule is now replaced by our container usage below)
+       If the image is now inside .project-image-container then you can remove or adjust this rule */
+}
+
+.project-info {
+    padding: 25px;
+    position: relative;
+    z-index: 3; /* Ensures info is above the overlay */
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.project-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tech-stack span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation delays */
+.timeline-item:nth-child(1) .content {
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(2) .content {
+    animation-delay: 0.4s;
+}
+
+.timeline-item:nth-child(3) .content {
+    animation-delay: 0.6s;
+}
+
+/* Add animation delays for new items */
+.timeline-item:nth-child(4) .content {
+    animation-delay: 0.8s;
+}
+
+.timeline-item:nth-child(5) .content {
+    animation-delay: 1s;
+}
+
+/* Hover effects for timeline items */
+.timeline-item .content {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline-item .content:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* Modal Overlay */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.95); /* Darker, richer backdrop */
+    padding: 50px 20px;
+    animation: fadeInModal 0.5s ease;
+}
+
+/* When modal is activated (for example, via JavaScript), add the 'active' class */
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a); /* Subtle gradient */
+    margin: auto;
+    padding: 40px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    color: white;
+    position: relative;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Modal Close Button */
+.close {
+    color: #ccc;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 30px;
+    }
+
+    .timeline-item .content {
+        width: calc(100% - 60px);
+        margin-left: 60px !important;
+        transform: none !important;
+    }
+
+    .date {
+        left: 30px;
+        transform: translateX(-50%);
+    }
+}
