@@ -559,8 +559,16 @@ h2 {
 }
 
 .modal-body .exp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 30px;
     padding: 0;
+}
+
+/* Optional: Ensure the website button gets some left margin */
+.modal-body .exp-header .link-btn.website {
+    margin-left: 20px;
 }
 
 .modal-body .company-info h3 {

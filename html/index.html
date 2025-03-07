@@ -18,7 +18,7 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Parallax Effect -->
     <section class="hero">
         <div class="profile-image">
             <img src="../images/headshot.jpg" alt="Your Photo" width="1920" height="1080" loading="lazy">
@@ -26,7 +26,61 @@
         <div class="hero-content">
             <h1>Felipe Nunes</h1>
             <p>Integrated Engineering</p>
+            <div class="hero-social-icons">
+                <a href="https://www.linkedin.com/in/felipemeinerznunes/" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
+                </a>
+                <a href="mailto:fnunes4822@gmail.com" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/gmail.svg" alt="Email">
+                </a>
+                <a href="https://github.com/felipflop" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
+                </a>
+                <!-- Add additional icons as needed -->
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#contact" class="btn">Get in Touch</a>
         </div>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Info</h2>
+            <p>Email: your.email@example.com</p>
+            <p>Phone: 123-456-7890</p>
+            <!-- Add additional contact details as needed -->
+        </div>
+    </section>
+
+    <footer class="social-footer">
+        <ul class="social-icons">
+            <li>
+                <a href="mailto:your.email@example.com" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/maildotru.svg" alt="Email">
+                </a>
+            </li>
+            <li>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/yourusername" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
+                </a>
+            </li>
+            <!-- Add additional icons as needed -->
+        </ul>
+    </footer>
+
+    <script>
+        // Parallax effect: adjust the hero image position based on scroll
+        window.addEventListener('scroll', function() {
+            const scrollPos = window.pageYOffset;
+            document.querySelector('.profile-image img').style.transform = 'translateY(' + scrollPos * 0.5 + 'px)';
+        });
+    </script>
 </body>
 </html>

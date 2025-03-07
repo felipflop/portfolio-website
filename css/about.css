@@ -1081,3 +1081,53 @@ nav {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
+
+/* Program Carousel Section */
+.program-carousel-section {
+    margin: 60px 0;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.program-carousel-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.program-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding: 20px;
+}
+
+.program-item {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.program-item:hover {
+    transform: scale(1.05);
+}
+
+.program-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.program-item span {
+    font-size: 0.9rem;
+    color: #fff;
+}
