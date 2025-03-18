@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <button class="hamburger">
             <span></span>
@@ -35,11 +34,12 @@
                 <!-- Incorporated About Me content -->
                 <div class="about-summary">
                     <h2 class="section-header"><span>About</span> Me</h2>
-                    <p>I'm an Integrated Engineering student at UBC, specializing in electrical and computer engineering. With experience in embedded systems and PCB design, I bridge the gap between hardware and software development.</p>
-                    <p>I'm passionate about creating solutions that merge hardware and software to solve real-world problems.</p>                    
+                    <p>I'm an Integrated Engineering student at UBC, specializing in electrical and computer engineering. With experience in robotics and embedded systems, I bridge the gap between hardware and software.</p>
+                    <p>I'm passionate about creating solutions to solve real-world problems.</p>                    
                     <!-- Call to action buttons -->
                     <div class="hero-buttons">
                         <a href="html/about.html" class="btn-outline">Learn more</a>
+                        <a href="html/contact.html" class="btn-outline btn-secondary">Contact</a>
                     </div>
                 </div>
             </div>
@@ -56,86 +56,24 @@
         </div>
     </section>
 
-    <!-- Skills Section with 3D Cards -->
-    <section id="skills" class="skills-section">
-        <h2 class="section-header"><span>Key</span> Skills</h2>
-        <div class="skills-container">
-            <div class="skill-card">
-                <div class="skill-card-front">
-                    <div class="skill-icon hardware"></div>
-                    <h3>Hardware</h3>
-                </div>
-                <div class="skill-card-back">
-                    <ul>
-                        <li>PCB Design</li>
-                        <li>CAD</li>
-                        <li>Embedded Systems</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="skill-card">
-                <div class="skill-card-front">
-                    <div class="skill-icon software"></div>
-                    <h3>Software</h3>
-                </div>
-                <div class="skill-card-back">
-                    <ul>
-                        <li>Python</li>
-                        <li>C/C++</li>
-                        <li>MATLAB/Simulink</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="skill-card">
-                <div class="skill-card-front">
-                    <div class="skill-icon tools"></div>
-                    <h3>Tools</h3>
-                </div>
-                <div class="skill-card-back">
-                    <ul>
-                        <li>KiCad</li>
-                        <li>Arduino</li>
-                        <li>Git</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="contact-container">
-            <h2 class="section-header"><span>Get In</span> Touch</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon email"></div>
-                    <a href="mailto:fnunes4822@gmail.com">fnunes4822@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon location"></div>
-                    <p>Vancouver, BC, Canada</p>
-                </div>
-                <a href="html/contact.html" class="btn-outline">Contact Me</a>
-            </div>
-        </div>
-    </section>
 
     <footer class="social-footer">
         <ul class="social-icons">
             <li>
-                <a href="mailto:fnunes4822@gmail.com" target="_blank">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/gmail.svg" alt="Email">
+                <a href="mailto:fnunes4822@gmail.com" target="_blank" aria-label="Email">
+                    <!-- Replacing with inline SVG for email icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>       <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>    </svg>
                 </a>
             </li>
             <li>
-                <a href="https://www.linkedin.com/in/felipemeinerznunes/" target="_blank">
+                <a href="https://www.linkedin.com/in/felipemeinerznunes/" target="_blank" aria-label="LinkedIn">
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
                 </a>
             </li>
             <li>
-                <a href="https://github.com/felipflop" target="_blank">
+                <a href="https://github.com/felipflop" target="_blank" aria-label="GitHub">
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
                 </a>
             </li>

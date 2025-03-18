@@ -307,6 +307,10 @@ nav {
     nav {
         justify-content: flex-start;
         padding: 15px 20px;
+        background: transparent; /* Remove background color */
+        backdrop-filter: none; /* Remove blur effect */
+        -webkit-backdrop-filter: none; /* Remove blur effect for Safari */
+        border-bottom: none; /* Remove bottom border */
     }
     
     .hamburger {
@@ -345,6 +349,58 @@ nav {
     
     .hamburger.active span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Fix the contact button text alignment on mobile */
+@media (max-width: 768px) {
+    /* Existing responsive styles */
+    
+    /* Enhanced button fixes with clamp */
+    .btn-outline, 
+    .hero-buttons a,
+    a.btn-outline,
+    .btn-secondary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: fit-content;
+        min-height: 48px; /* Better touch target */
+        margin: 0 auto; /* Center buttons if needed */
+        padding: 0.5rem 1.25rem;
+        font-size: clamp(0.875rem, 4vw, 1rem); /* Responsive font size */
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+    
+    /* For inline buttons in flex containers */
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    /* Extra specific selector to override any other styles */
+    .container a.btn-outline,
+    .hero-buttons a.btn-outline.btn-secondary {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    /* Handle any nested elements inside buttons */
+    .btn-outline *,
+    .hero-buttons a * {
+        vertical-align: middle;
+    }
+    
+    /* Fix pseudo-elements that might affect alignment */
+    .btn-outline::before,
+    .btn-outline::after {
+        content: "";
+        position: absolute;
     }
 }
 
