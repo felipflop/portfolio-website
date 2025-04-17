@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Felipe Nunes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="html/about.html">About</a></li>
@@ -18,69 +23,117 @@
         </ul>
     </nav>
 
-    <!-- Hero Section with Parallax Effect -->
+    <!-- Hero Section with Split Layout Design -->
     <section class="hero">
-        <div class="profile-image">
-            <img src="../images/headshot.jpg" alt="Your Photo" width="1920" height="1080" loading="lazy">
-        </div>
         <div class="hero-content">
-            <h1>Felipe Nunes</h1>
-            <p>Integrated Engineering</p>
-            <div class="hero-social-icons">
-                <a href="https://www.linkedin.com/in/felipemeinerznunes/" target="_blank">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
-                </a>
-                <a href="mailto:fnunes4822@gmail.com" target="_blank">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/gmail.svg" alt="Email">
-                </a>
-                <a href="https://github.com/felipflop" target="_blank">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
-                </a>
-                <!-- Add additional icons as needed -->
+            <!-- Left side - Text content -->
+            <div class="hero-text">
+                <h1>Felipe Nunes</h1>
+                <p>Integrated Engineering</p>
+                
+                <!-- Incorporated About Me content -->
+                <div class="about-summary">
+                    <h2 class="section-header"><span>About</span> Me</h2>
+                    <p>I'm an Integrated Engineering student at UBC, specializing in electrical and computer engineering. With experience in robotics and embedded systems, I bridge the gap between hardware and software.</p>
+                    <p>I'm passionate about creating solutions to solve real-world problems.</p>                    
+                    <!-- Call to action buttons -->
+                    <div class="hero-buttons">
+                        <a href="html/about.html" class="btn-outline">Learn more</a>
+                        <a href="html/contact.html" class="btn-outline btn-secondary">Contact</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="scroll-down">
-            <a href="#contact" class="btn">Get in Touch</a>
+            
+            <!-- Right side - Profile Image -->
+            <div class="profile-container">
+                <div class="profile-box">
+                    <img src="images/headshot.jpg" alt="Felipe Nunes">
+                    <div class="profile-overlay"></div>
+                </div>
+                <div class="profile-frame"></div>
+                <div class="profile-accent"></div>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Contact Info</h2>
-            <p>Email: your.email@example.com</p>
-            <p>Phone: 123-456-7890</p>
-            <!-- Add additional contact details as needed -->
-        </div>
-    </section>
 
     <footer class="social-footer">
         <ul class="social-icons">
             <li>
-                <a href="mailto:your.email@example.com" target="_blank">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/maildotru.svg" alt="Email">
+                <a href="mailto:fnunes4822@gmail.com" target="_blank" aria-label="Email">
+                    <!-- Replacing with inline SVG for email icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>       <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>    </svg>
                 </a>
             </li>
             <li>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank">
+                <a href="https://www.linkedin.com/in/felipemeinerznunes/" target="_blank" aria-label="LinkedIn">
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
                 </a>
             </li>
             <li>
-                <a href="https://github.com/yourusername" target="_blank">
+                <a href="https://github.com/felipflop" target="_blank" aria-label="GitHub">
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
                 </a>
             </li>
-            <!-- Add additional icons as needed -->
         </ul>
+        <p class="copyright">© 2025 Felipe Nunes. All rights reserved.</p>
     </footer>
 
     <script>
-        // Parallax effect: adjust the hero image position based on scroll
-        window.addEventListener('scroll', function() {
-            const scrollPos = window.pageYOffset;
-            document.querySelector('.profile-image img').style.transform = 'translateY(' + scrollPos * 0.5 + 'px)';
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for scroll animations with earlier detection
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { 
+                threshold: 0.01,  // Reduced threshold - triggers much earlier
+                rootMargin: '0px 0px -10% 0px' // Negative bottom margin triggers before fully in view
+            });
+
+            // Observe all sections for animation
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Enhanced parallax effect
+            window.addEventListener('scroll', function() {
+                const scrollPos = window.pageYOffset;
+                const heroHeight = document.querySelector('.hero').offsetHeight;
+                const heroImage = document.querySelector('.profile-image img');
+                
+                // Move the background image at a different speed
+                heroImage.style.transform = `translateY(${scrollPos * 0.4}px)`;
+                
+                // Fade out hero content as you scroll
+                const heroContent = document.querySelector('.hero-content');
+                const opacity = 1 - (scrollPos / (heroHeight * 0.6));
+                heroContent.style.opacity = opacity > 0 ? opacity : 0;
+                
+                // Change nav background when scrolling
+                const nav = document.querySelector('nav');
+                if (scrollPos > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
         });
     </script>
+    <script src="js/navigation.js"></script>
 </body>
 </html>

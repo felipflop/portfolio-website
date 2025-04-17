@@ -17,6 +17,7 @@ body.modal-open {
 }
 
 /* Navigation */
+/* Navigation */
 nav {
     position: fixed;
     top: 0;
@@ -25,8 +26,10 @@ nav {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 25px 0;
-    z-index: 1001; /* Higher than modal and body::after */
+    z-index: 100;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
 }
 
 .nav-links {
@@ -65,6 +68,296 @@ nav {
 
 .nav-links a:hover {
     opacity: 0.8;
+}
+
+/* Hamburger menu icon */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+/* Media Queries for navigation */
+@media (max-width: 768px) {
+    nav {
+        justify-content: flex-start;
+        padding: 15px 20px;
+        background: transparent; /* Remove background color */
+        backdrop-filter: none; /* Remove blur effect */
+        -webkit-backdrop-filter: none; /* Remove blur effect for Safari */
+        border-bottom: none; /* Remove bottom border */
+    }
+    
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(15, 15, 15, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 80px 0;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Timeline adjustments for mobile */
+    .timeline {
+        margin: 80px auto 40px;
+        padding: 0 15px;
+    }
+
+    .timeline::before {
+        left: 20px; /* Move timeline line to left side */
+        transform: none;
+    }
+
+    .timeline-item {
+        margin-bottom: 60px;
+    }
+
+    /* Make all content display on right side of timeline */
+    .timeline-item:nth-child(odd) .content,
+    .timeline-item:nth-child(even) .content {
+        margin-left: 40px; /* Space for timeline and date */
+        margin-right: 0;
+        transform: none;
+        width: calc(100% - 50px);
+        animation-name: mobileFadeIn;
+    }
+
+    /* Position dates to the left */
+    .date {
+        left: 20px;
+        top: -15px;
+        transform: none;
+        font-size: 0.85rem;
+        padding: 5px 12px;
+        width: auto;
+        text-align: center;
+    }
+
+    /* Project image adjustments */
+    .project-image-container {
+        min-height: 180px;
+    }
+    
+    .project-image-container img {
+        height: 180px;
+    }
+
+    /* Adjust project info padding */
+    .project-info {
+        padding: 15px;
+    }
+    
+    .project-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .tech-stack span {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+
+    /* Modal improvements */
+    .modal-content {
+        width: 95%;
+        height: 90vh;
+        padding: 0;
+    }
+
+    .modal-header {
+        padding: 15px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+
+    .close {
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .modal-image {
+        height: 200px;
+    }
+
+    /* Better buttons for touch */
+    .btn {
+        padding: 12px 20px;
+    }
+    
+    /* New mobile animation */
+    @keyframes mobileFadeIn {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Remove timeline completely for mobile */
+    .timeline {
+        margin: 80px auto 40px;
+        padding: 0 15px;
+    }
+    
+    /* Hide the vertical timeline line */
+    .timeline::before {
+        display: none;
+    }
+    
+    /* Simplify to vertical card layout */
+    .timeline-item {
+        margin-bottom: 40px;
+        position: relative;
+    }
+    
+    /* Reset all card positioning - make all cards full width and centered */
+    .timeline-item:nth-child(odd) .content,
+    .timeline-item:nth-child(even) .content {
+        margin-left: 0;
+        margin-right: 0;
+        transform: none;
+        width: 100%;
+        animation-name: mobileFadeIn;
+    }
+    
+    /* Reposition dates to top of cards */
+    .date {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+        width: fit-content;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+    
+    /* Project card styling */
+    .content {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Project image adjustments */
+    .project-image-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        min-height: 180px;
+        margin-left: 0;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .project-image-container img {
+        height: 180px;
+    }
+    
+    /* Mobile animation */
+    @keyframes mobileFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Hide dates completely in mobile view */
+    .date {
+        display: none; /* This hides the date elements */
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    /* Even more compact for very small screens */
+    .timeline {
+        margin-top: 70px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 40px;
+    }
+    
+    .timeline-item .content:hover {
+        transform: scale(1.02); /* Smaller scale change on mobile */
+    }
+    
+    .project-info {
+        padding: 12px;
+    }
+    
+    .project-info p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .project-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn {
+        text-align: center;
+        display: block;
+    }
 }
 
 /* Timeline */

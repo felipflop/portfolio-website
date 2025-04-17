@@ -13,6 +13,7 @@ body {
 }
 
 /* Navigation */
+/* Navigation */
 nav {
     position: fixed;
     top: 0;
@@ -23,7 +24,8 @@ nav {
     padding: 25px 0;
     z-index: 100;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
 }
 
 .nav-links {
@@ -62,6 +64,79 @@ nav {
 
 .nav-links a:hover {
     opacity: 0.8;
+}
+
+/* Hamburger menu icon */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+/* Media Queries for navigation */
+@media (max-width: 768px) {
+    nav {
+        justify-content: flex-start;
+        padding: 15px 20px;
+        background: transparent; /* Remove background color */
+        backdrop-filter: none; /* Remove blur effect */
+        -webkit-backdrop-filter: none; /* Remove blur effect for Safari */
+        border-bottom: none; /* Remove bottom border */
+    }
+    
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(15, 15, 15, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 80px 0;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
 }
 
 /* Container */
@@ -739,4 +814,135 @@ h2 {
 
 .link-btn.github:hover {
     background: rgba(45, 45, 45, 1);
+}
+
+/* Responsive Design - Enhanced for better mobile experience */
+@media (max-width: 768px) {
+    .container {
+        padding: 80px 15px 30px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .experience-section,
+    .teams-section {
+        padding: 0;
+    }
+
+    /* Card layout improvements for mobile */
+    .experience-card {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 0;
+    }
+
+    .card-background {
+        height: 100px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .company-logo {
+        max-height: 100px;
+    }
+
+    .company-logo img {
+        max-height: 60px;
+    }
+
+    .exp-header {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .exp-meta {
+        text-align: left;
+        margin-top: 5px;
+    }
+
+    /* Typography adjustments */
+    .company-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .role {
+        font-size: 0.9rem;
+    }
+
+    .location, .duration {
+        font-size: 0.8rem;
+    }
+
+    /* Modal improvements for mobile */
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .modal-body .company-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .modal-body .role {
+        font-size: 1rem;
+    }
+
+    .exp-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* Better touch targets */
+    .close-button {
+        padding: 10px;
+        top: 10px;
+        right: 10px;
+    }
+
+    /* Link buttons in modal */
+    .link-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .link-btn {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .container {
+        padding-top: 70px;
+    }
+    
+    /* Simpler card design for very small screens */
+    .experience-card {
+        margin-bottom: 15px;
+    }
+    
+    .card-background {
+        height: 80px;
+    }
+    
+    .company-logo img {
+        max-height: 50px;
+    }
+
+    /* Even more compact modal */
+    .modal-content {
+        padding: 15px;
+    }
+
+    /* Improve tech list display */
+    .tech-list {
+        gap: 5px;
+    }
+    
+    .tech-list li {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
 }
